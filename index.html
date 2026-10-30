@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Lucie et Rémi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap">
+<style>
+:root{
+  --vert:#425B47;
+  --vert-fonce:#33473A;
+  --beige:#FFFBCC;
+  --sauge:#8FA392;
+  --encre:#2B3A2F;
+  --police:"Josefin Slab", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--beige);color:var(--encre);font-family:var(--police);font-size:18px;line-height:1.55}
+img{max-width:100%}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header{background:var(--vert);color:var(--beige);text-align:center}
+header .wrap{padding-block:calc(56px + env(safe-area-inset-top,0px)) 64px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.eyebrow{font-size:14px;letter-spacing:.32em;text-transform:uppercase;font-weight:600;opacity:.85}
+h1{font-weight:300;font-size:clamp(52px,11vw,104px);line-height:1;margin:0;letter-spacing:.02em}
+h1 .et{font-style:italic;font-size:.55em;display:inline-block;margin:0 .15em;vertical-align:.18em}
+.filet{display:flex;align-items:center;gap:14px;width:min(320px,80%)}
+.filet::before,.filet::after{content:"";flex:1;height:1px;background:currentColor;opacity:.5}
+.filet span{width:7px;height:7px;border:1px solid currentColor;transform:rotate(45deg)}
+.date{font-size:20px;letter-spacing:.14em;text-transform:uppercase}
+
+.mot{text-align:center}
+.mot .wrap{padding-block:56px 40px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.mot p{max-width:34ch;margin:0;font-size:clamp(20px,2.6vw,24px);font-weight:300;text-wrap:pretty}
+.mot .sign{font-style:italic;font-size:22px;color:var(--vert)}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--beige);border-block:1px solid rgba(66,91,71,.25)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--vert)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+nav button{font-family:var(--police);font-size:17px;font-weight:600;letter-spacing:.06em;color:var(--vert);background:transparent;border:1px solid transparent;padding:8px 16px;border-radius:999px;cursor:pointer;white-space:nowrap}
+nav button:hover{border-color:rgba(66,91,71,.4)}
+nav button[aria-pressed="true"]{background:var(--vert);color:var(--beige)}
+nav .n{font-weight:400;opacity:.7;margin-left:6px;font-size:14px}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--vert);outline-offset:3px}
+
+main .wrap{padding-block:36px 64px}
+.titre-section{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+h2{font-weight:400;font-size:clamp(32px,5vw,44px);margin:0;color:var(--vert)}
+.compte{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--sauge);font-weight:600}
+.grille{columns:3 260px;column-gap:14px}
+.photo{display:block;width:100%;margin:0 0 14px;break-inside:avoid;border:0;padding:0;cursor:zoom-in;border-radius:2px;overflow:hidden;background:rgba(66,91,71,.12)}
+.photo img{display:block;width:100%;height:auto}
+.vide{text-align:center;font-style:italic;color:var(--vert);padding:48px 0;font-size:20px}
+
+footer{background:var(--vert);color:var(--beige);text-align:center}
+footer .wrap{padding-block:36px calc(36px + env(safe-area-inset-bottom,0px));font-size:16px;letter-spacing:.08em}
+
+.lb{position:fixed;inset:0;z-index:20;background:rgba(30,40,33,.95);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-width:100%;max-height:72vh;object-fit:contain}
+.lb .barre{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;color:var(--beige)}
+.lb button,.lb a{font-family:var(--police);font-size:17px;font-weight:600;border-radius:999px;padding:9px 18px;cursor:pointer;border:1px solid var(--beige);background:transparent;color:var(--beige);text-decoration:none}
+.lb .principal{background:var(--beige);color:var(--vert)}
+.lb .pos{min-width:70px;text-align:center;letter-spacing:.1em}
+
+.porte{position:fixed;inset:0;z-index:40;background:var(--vert);color:var(--beige);display:flex;align-items:center;justify-content:center;text-align:center;padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.porte form{display:flex;flex-direction:column;align-items:center;gap:16px;max-width:380px;width:100%}
+.porte h1{font-size:clamp(48px,12vw,80px)}
+.porte label{font-size:18px;letter-spacing:.06em}
+.porte input{font-family:var(--police);font-size:22px;text-align:center;letter-spacing:.2em;text-transform:uppercase;width:100%;padding:12px;border-radius:999px;border:1px solid var(--beige);background:var(--vert-fonce);color:var(--beige)}
+.porte input:focus-visible{outline-color:var(--beige)}
+.porte button{font-family:var(--police);font-size:18px;font-weight:600;padding:11px 28px;border-radius:999px;border:0;background:var(--beige);color:var(--vert);cursor:pointer}
+.porte .err{min-height:1.5em;font-size:16px;font-style:italic}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="porte" id="porte">
+  <form id="formCode">
+    <div class="eyebrow">3 octobre 2026</div>
+    <h1>Lucie <span class="et">et</span> Rémi</h1>
+    <div class="filet" aria-hidden="true"><span></span></div>
+    <label for="code">Saisissez le code inscrit sous le QR code</label>
+    <input id="code" autocomplete="off" autocapitalize="characters" spellcheck="false">
+    <button type="submit">Voir les photos</button>
+    <div class="err" id="err" aria-live="polite"></div>
+  </form>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Nos souvenirs</div>
+    <h1>Lucie <span class="et">et</span> Rémi</h1>
+    <div class="filet" aria-hidden="true"><span></span></div>
+    <div class="date">3 octobre 2026</div>
+  </div>
+</header>
+
+<section class="mot">
+  <div class="wrap">
+    <p>Un grand merci d'avoir partagé cette journée si spéciale pour nous.</p>
+    <p>Votre présence et votre attention nous ont beaucoup touchés et ont contribué à rendre notre mariage encore plus beau.</p>
+    <p>Avec toute notre affection, merci du fond du cœur.</p>
+    <div class="sign">Lucie &amp; Rémi</div>
+  </div>
+</section>
+
+<nav aria-label="Moments du mariage"><div class="wrap" id="onglets"></div></nav>
+
+<main>
+  <div class="wrap">
+    <div class="titre-section"><h2 id="titre"></h2><span class="compte" id="compte"></span></div>
+    <div class="grille" id="grille"></div>
+    <p class="vide" id="vide" hidden>Les photos arrivent très bientôt.</p>
+  </div>
+</main>
+
+<footer><div class="wrap">Lucie &amp; Rémi · Merci à tous</div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Photo agrandie">
+  <img id="lbImg" alt="">
+  <div class="barre">
+    <button id="prec" type="button" aria-label="Photo précédente">‹ Précédente</button>
+    <span class="pos" id="pos"></span>
+    <button id="suiv" type="button" aria-label="Photo suivante">Suivante ›</button>
+  </div>
+  <div class="barre">
+    <a class="principal" id="telecharger" download>Télécharger cette photo</a>
+    <button id="fermer" type="button">Fermer</button>
+  </div>
+</div>
+
+<script>
+/* Code d'accès : modifier la valeur ci-dessous pour le changer */
+const CODE_ACCES = "LR2026";
+
+const THEMES = [
+  {id:"ceremonie", nom:"Cérémonie"},
+  {id:"vin-honneur", nom:"Vin d'honneur"},
+  {id:"soiree", nom:"Soirée"}
+];
+
+const porte = document.getElementById("porte");
+let accesOk = false;
+try { accesOk = localStorage.getItem("acces") === CODE_ACCES; } catch(e) {}
+if (accesOk) porte.hidden = true; else document.getElementById("code").focus();
+document.getElementById("formCode").addEventListener("submit", e => {
+  e.preventDefault();
+  const v = document.getElementById("code").value.trim().toUpperCase();
+  if (v === CODE_ACCES) {
+    porte.hidden = true;
+    try { localStorage.setItem("acces", CODE_ACCES); } catch(e) {}
+  } else {
+    document.getElementById("err").textContent = "Code incorrect, vérifiez la carte reçue avec le QR code.";
+  }
+});
+
+let donnees = {}, courant = null, idx = 0;
+const onglets = document.getElementById("onglets"), grille = document.getElementById("grille");
+
+function afficher(t) {
+  courant = t;
+  document.querySelectorAll("nav button").forEach(b => b.setAttribute("aria-pressed", b.dataset.id === t.id));
+  document.getElementById("titre").textContent = t.nom;
+  const liste = donnees[t.id] || [];
+  document.getElementById("compte").textContent = liste.length ? liste.length + " photos" : "";
+  document.getElementById("vide").hidden = liste.length > 0;
+  grille.innerHTML = "";
+  liste.forEach((p, i) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "photo";
+    b.setAttribute("aria-label", "Agrandir la photo " + (i + 1));
+    const img = document.createElement("img");
+    img.src = p.mini; img.alt = ""; img.loading = "lazy"; img.decoding = "async";
+    img.width = p.l; img.height = p.h;
+    b.appendChild(img);
+    b.onclick = () => ouvrir(i);
+    grille.appendChild(b);
+  });
+  try { localStorage.setItem("onglet", t.id); } catch(e) {}
+}
+
+const lb = document.getElementById("lb");
+function ouvrir(i) { idx = i; rendre(); lb.hidden = false; document.getElementById("fermer").focus(); }
+function rendre() {
+  const liste = donnees[courant.id], p = liste[idx];
+  document.getElementById("lbImg").src = p.web;
+  const a = document.getElementById("telecharger");
+  a.href = p.web;
+  a.setAttribute("download", "lucie-remi-" + courant.id + "-" + String(idx + 1).padStart(3, "0") + ".jpg");
+  document.getElementById("pos").textContent = (idx + 1) + " / " + liste.length;
+  [liste[idx + 1], liste[idx - 1]].forEach(q => { if (q) { const im = new Image(); im.src = q.web; } });
+}
+function fermer() { lb.hidden = true; }
+document.getElementById("prec").onclick = () => { const n = donnees[courant.id].length; idx = (idx - 1 + n) % n; rendre(); };
+document.getElementById("suiv").onclick = () => { const n = donnees[courant.id].length; idx = (idx + 1) % n; rendre(); };
+document.getElementById("fermer").onclick = fermer;
+lb.addEventListener("click", e => { if (e.target === lb) fermer(); });
+document.addEventListener("keydown", e => {
+  if (lb.hidden) return;
+  if (e.key === "Escape") fermer();
+  if (e.key === "ArrowLeft") document.getElementById("prec").click();
+  if (e.key === "ArrowRight") document.getElementById("suiv").click();
+});
+let x0 = null;
+lb.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, {passive:true});
+lb.addEventListener("touchend", e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0; x0 = null;
+  if (Math.abs(dx) > 50) document.getElementById(dx < 0 ? "suiv" : "prec").click();
+});
+
+THEMES.forEach(t => {
+  const b = document.createElement("button");
+  b.type = "button"; b.dataset.id = t.id;
+  b.innerHTML = t.nom + '<span class="n"></span>';
+  b.onclick = () => afficher(t);
+  onglets.appendChild(b);
+});
+
+fetch("photos.json", {cache: "no-cache"})
+  .then(r => r.ok ? r.json() : {})
+  .catch(() => ({}))
+  .then(d => {
+    donnees = d || {};
+    onglets.querySelectorAll("button").forEach(b => {
+      const n = (donnees[b.dataset.id] || []).length;
+      b.querySelector(".n").textContent = n || "";
+    });
+    let depart = THEMES[0];
+    try { const s = localStorage.getItem("onglet"); depart = THEMES.find(t => t.id === s) || depart; } catch(e) {}
+    afficher(depart);
+  });
+</script>
+</body>
+</html>
