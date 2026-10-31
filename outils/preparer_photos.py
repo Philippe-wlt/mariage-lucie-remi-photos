@@ -3,7 +3,7 @@
 Usage : python3 outils/preparer_photos.py <dossier_source>
 
 <dossier_source> contient un sous-dossier par rubrique :
-  ceremonie/, vin-honneur/, soiree/
+  ceremonie/, vin-honneur/
 
 Pour chaque photo : redressement selon l'orientation, tri par heure de prise
 de vue (EXIF), une version web (2000 px) et une miniature (700 px).
@@ -16,7 +16,7 @@ from pathlib import Path
 
 from PIL import Image, ImageOps
 
-RUBRIQUES = ["ceremonie", "vin-honneur", "soiree"]
+RUBRIQUES = ["ceremonie", "vin-honneur"]
 EXT = {".jpg", ".jpeg", ".png", ".heic", ".webp", ".tif", ".tiff"}
 RACINE = Path(__file__).resolve().parent.parent
 
